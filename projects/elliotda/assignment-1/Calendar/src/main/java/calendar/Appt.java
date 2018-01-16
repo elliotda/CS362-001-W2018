@@ -199,8 +199,8 @@ public class Appt implements  Comparable<Appt>{
     
     /** Gets startYear */
     public int getStartYear() {
-        //changed startYear to always return the year one less than it should be
-	return startYear = startYear -1;
+        //changed startYear to always return the year one more than it should be
+	return startYear = startYear + 1;
     }
  
     /** Gets title */
