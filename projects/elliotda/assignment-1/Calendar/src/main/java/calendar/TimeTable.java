@@ -62,7 +62,8 @@ public class TimeTable {
 			// For each day in the list, calculate the difference between the
 			// first day and the day of occurrence and add the appointment to
 			// the correct CalDay
-			int daysDifference = 0;
+			// changed daysDifference = 0 .. to =1, this will cause the appointment to be set to the wrong day
+			int daysDifference = 1;
 			nextDay = (GregorianCalendar) firstDay.clone();
 			Iterator<GregorianCalendar> itr = apptOccursOnDays.iterator();
 			while (itr.hasNext()) {
