@@ -111,8 +111,9 @@ public class Appt implements  Comparable<Appt>{
      */
     private void isValid() {
     	int NumDaysInMonth= CalendarUtil.NumDaysInMonth(startYear,startMonth-1);
-    				
-    	if(startHour<0 || startHour>23)
+    	
+	    //changed startHour>23 to >20, any starthour set to 21+ will not be allowed
+    	if(startHour<0 || startHour>20)
     		this.valid=false;
     	else
         	if(startMinute<0 || startMinute>59)
@@ -198,7 +199,8 @@ public class Appt implements  Comparable<Appt>{
     
     /** Gets startYear */
     public int getStartYear() {
-        return startYear;
+        //changed startYear to always return the year one less than it should be
+	return startYear = startYear -1;
     }
  
     /** Gets title */
@@ -246,7 +248,8 @@ public class Appt implements  Comparable<Appt>{
     }
     /** Gets recurNumber */
     public int getRecurNumber() {
-        return recurNumber;
+        //changed return recurNumber to always return zero. this will cause problems when trying to set a recurring appt
+	return 0;
     }
     /** Gets recurBy */
     public int getRecurBy() {
@@ -284,8 +287,8 @@ public class Appt implements  Comparable<Appt>{
             printableHour -= 12;
         }
         if (printableHour == 0)
-        {
-            printableHour = 12;
+        {	//changed printableHour = 12 to = 11, this will cause the printed hour when set to 0 be 11 instead of 12
+            printableHour = 11;
         }
         String represntationApp= printableHour +":"+ getStartMinute() + half;
         return represntationApp;
