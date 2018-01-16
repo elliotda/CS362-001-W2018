@@ -37,7 +37,9 @@ public class TimeTable {
 	        
 	        //Make sure that the first day is before the last day
 	        if (!firstDay.before(lastDay)) {
-	        	throw new DateOutOfRangeException ("Second date specified is not  before the first date specified.");
+			//changed message from below to an ambiguous error message 
+			//"Second date specified is not before the first date specified."
+	        	throw new DateOutOfRangeException ("Huh? Calendar cannot warp time!");
 	        }
 	        
 	        
